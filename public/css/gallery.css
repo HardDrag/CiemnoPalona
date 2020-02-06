@@ -1,0 +1,14 @@
+:checked+label {
+  opacity: 0.5;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+img {
+  height: 24vh;
+  max-width: 24vh;
+}
+
+

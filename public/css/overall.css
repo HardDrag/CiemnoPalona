@@ -1,0 +1,36 @@
+#topline{
+    background-color: #10C491;
+}
+
+.card {
+    color: black;
+    margin-top: 1rem;
+}
+
+.btn-outline-primary {
+    color: #10C491;
+    border-color: #10C491;
+}
+
+.btn-outline-primary:hover {
+    color: #10C491;
+    border-color: #10C491;
+    background-color: white;
+}
+
+.card-header {
+    background-color: rgb(245, 219, 143);
+}
+
+#navbarDropdown {
+    font-weight: bold;
+}
+
+.card-body {
+    background-color: #565a5e;
+}
+
+.card {
+    border-width: 0.2rem;
+    border-color: rgb(245, 219, 143);
+}
