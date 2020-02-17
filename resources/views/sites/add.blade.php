@@ -22,3 +22,9 @@
 </table>
 
 @endsection
+
+@section('iffer')
+    @if (!($site->user_id===auth()->user()->id))
+        <p class="m-2 d-flex justify-content-center" style="font-size: 1.5rem">There's no ordrers!</p>
+    @endif
+@endsection
