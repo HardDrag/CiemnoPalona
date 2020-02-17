@@ -50,13 +50,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'surname' => ['required', 'string', 'max:255'],
-            'city' => ['required', 'string', 'max:255'],
-            'postcode' => ['required', 'string', 'max:6'],
-            'street' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'integer'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'name' => ['required', "regex:/^[A-Ż]{1}(?=.{1,40}$)[a-żA-Ż]+(?:[-'\s][a-żA-Ż]+)*$/", 'string'],
+            'surname' => ['required', "regex:/^[A-Ż]{1}(?=.{1,40}$)[a-żA-Ż]+(?:[-'\s][a-żA-Ż]+)*$/", 'string'],
+            'city' => ['required', "regex:/^[A-Ż]{1}(?=.{1,40}$)[a-żA-Ż]+(?:[-'\s][a-żA-Ż]+)*$/", 'string'],
+            'postcode' => ['required', "regex:/^[0-9]{2}-?[0-9]{3}/", 'string'],
+            'street' => ['required', "regex:/[A-Ż][a-ż]{3,20}\s[1-9][0-9]*[A-z]*(\\|)?[0-9]*/", 'string'],
+            'phone' => ['required', "regex:/[0-9]{9}/", 'integer'],
+            'email' => ['required', 'string', 'email', 'max:60', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
