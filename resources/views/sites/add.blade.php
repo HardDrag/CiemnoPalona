@@ -10,11 +10,24 @@
         ?>
         @foreach($sites as $site) 
             @if($site->user_id===auth()->user()->id)
-                <?php
+                @php
                     $x++;
-                ?>
+                    $db_date = $site -> created_at;
+                    $db_date -> modify('+1 day');
+                    $current_date = date('Y-m-d H:i:s');
+                @endphp
+
                 <tr>
-                    <td><a href="{{route('sites.show', $site)}}">Order no. {{$x}}</a></td>
+                    <td>
+                        <a href="{{route('sites.show', $site)}}">Order no. {{$x}}
+                            @if ($db_date > $current_date) 
+                                in progress
+                            @endif
+                        </a>
+                    </td>
+                    <td class="text-white">
+                        {{$site -> price}} zł
+                    </td>
                 </tr>
             @endif
         @endforeach
